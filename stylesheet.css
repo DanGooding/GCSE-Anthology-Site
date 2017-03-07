@@ -148,15 +148,18 @@ body {
 
 
 
-/*@media (max-width: 900px) {
+@media (max-width: 900px) {
     .navButton {
         padding: 5px 10px;
     }
     #content {
         width: 80%;
     }
-}*/
-/*@media (max-width: 900px) {/*700px*/
+}
+@media (hover: none) {/*(max-width: 700px) {/*700px*/
+    body {
+        background: green;
+    }
     #headerContainer {
         font-size: 200%;
     }
@@ -187,7 +190,7 @@ body {
     input.word {
         /*font-size: 200%;*/
     }
-/*}*/
+}
 /*#content {
     margin-bottom: 300px;
 }*/
