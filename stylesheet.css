@@ -1,9 +1,4 @@
 
-html {
-    /*overflow: hidden;
-    height: 100%;*/
-}
-
 body {
     /*height: 100%;
     overflow: auto;*/
@@ -11,6 +6,8 @@ body {
     margin: 0;
     font-family: 'Playfair Display', serif;
     background-color: rgb(255, 255, 240);
+
+    text-shadow: none;
 }
 
 
@@ -149,6 +146,8 @@ body {
     display: none;
 }
 
+
+
 @media (max-width: 900px) {
     .navButton {
         padding: 5px 10px;
@@ -157,17 +156,13 @@ body {
         width: 80%;
     }
 }
-@media (max-width: 700px) {
+@media (max-width: 700px) {/*700px*/
     #headerContainer {
-        /*font-size: 300%;*/
-
+        /*font-size: 200%;*/
     }
     #header {
         padding: 10px 0px 5px 20px;
     }
-    /*.navButton {
-        padding: 5px 10px;
-    }*/
     .navButton {
         padding: 5px 7px;
     }
@@ -181,20 +176,15 @@ body {
     #content {
         width: 99%;
     }
-    body {
-        /*font-size: 200%;*/
-        /*background-color: green;*/
-    }
-    input.word {
-        /*font-size: 200%;*/
-    }
     #nav.open .navButton {
         display: block;
-        /*border-left: 2px solid yellow;*/
 
     }
     #poemTitle {
         display: inline;
+    }
+    input.word {
+        /*font-size: 200%;*/
     }
 }
 /*#content {
@@ -246,6 +236,7 @@ input.word {
 
     background-color: white;
     border: none;
+    border-color: transparent;
     border-bottom-width: medium;
     border-style: none none solid none;
     border-color: black;
