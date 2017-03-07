@@ -144,6 +144,7 @@ body {
 
 #poemTitle {
     display: none;
+    text-shadow: none;
 }
 
 
@@ -300,7 +301,7 @@ input.word:focus {
 }
 
 
-/*@media (min-width: 100px) {
+@media (min-width: 100px) {
     body {background-color: black;}
 }
 @media (min-width: 600px) {
@@ -323,4 +324,4 @@ input.word:focus {
 }
 @media (min-width: 1200px) {
     body {background-color: purple;}
-}*/
+}
