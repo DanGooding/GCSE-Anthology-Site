@@ -1,0 +1,305 @@
+
+html {
+    /*overflow: hidden;
+    height: 100%;*/
+}
+
+body {
+    /*height: 100%;
+    overflow: auto;*/
+
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background-color: rgb(255, 255, 240);
+}
+
+
+::selection {
+  background: #ffa64d;
+  color: white;
+}
+::-moz-selection {
+  background: #ffa64d;
+  color: white;
+}
+
+
+#headerContainer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    /*position:*/
+
+    /*prevent highlighting header text*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
+}
+#header {
+    background-color: orange;
+    /*width: 100%;*/
+    /*height: 100px;*/
+    color: yellow;
+    font-size: 200%;
+    margin: 0;
+    padding: 20px 0px 5px 40px;
+    opacity: 0.99;
+}
+#headerLink {
+    text-decoration: none;
+    color: yellow;
+
+}
+
+#nav {
+    background-color: #FF8C00;
+    overflow: hidden;
+    opacity: 0.99;
+}
+.navButton, #markButton {
+    outline: none;
+    font-size: 100%;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
+    color: yellow;
+    background-color: #FF8C00;
+    /*padding: 10px 30px;*/
+    padding: 8px 20px;
+    /*margin: 10px 20px;*/
+    display: block;
+    float: left;
+}
+
+#markButton {
+    width: 100%;
+    margin: 0 auto;
+    display: table;
+    font-size: 200%;
+}
+.navButton:hover, #markButton:hover {
+    background-color: #ef6000;
+}
+#markButton:focus {
+    outline: solid;
+    outline-color: yellow;
+    background-color: #ef6000;
+}
+#markButton:disabled {
+    background-color: lightgrey;
+    color: grey;
+}
+.current {
+    background-color: #ef6000;
+}
+
+
+
+#content {
+    width: 60%;
+    /*width: 90%;*/
+    margin: 0 auto;
+
+    /*margin-top: 150px;*/
+}
+/*#headerContainer {
+    font-size: 300%;
+}*/
+/*@media (min-width: 768px) {
+    #headerContainer {
+        font-size: 100%;
+
+    }
+    #content {
+        width: 80%;
+        margin: 0 auto;
+        /*margin-top: 150px;* /
+    }
+    .navButton {
+        padding: 10px 15px;
+        /*background-color: green;* /
+    }
+}*/
+/*@media (min-width: 1000px) {
+    #headerContainer {
+        font-size: 100%;
+
+    }
+    #content {
+        width: 60%;
+        margin: 0 auto;
+        /*margin-top: 150px;* /
+    }
+    .navButton {
+        padding: 10px 30px;
+        background-color: red;
+    }
+}*/
+
+.navButton.expand {
+    display: none;
+}
+
+#poemTitle {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .navButton {
+        padding: 5px 10px;
+    }
+    #content {
+        width: 80%;
+    }
+}
+@media (max-width: 700px) {
+    #headerContainer {
+        /*font-size: 300%;*/
+
+    }
+    #header {
+        padding: 10px 0px 5px 20px;
+    }
+    /*.navButton {
+        padding: 5px 10px;
+    }*/
+    .navButton {
+        padding: 5px 7px;
+    }
+    .navButton.expand {
+        display: block;
+        width: 100%;
+    }
+    .navButton:not(.expand) {
+        display: none;
+    }
+    #content {
+        width: 99%;
+    }
+    body {
+        /*font-size: 200%;*/
+        /*background-color: green;*/
+    }
+    input.word {
+        /*font-size: 200%;*/
+    }
+    #nav.open .navButton {
+        display: block;
+        /*border-left: 2px solid yellow;*/
+
+    }
+    #poemTitle {
+        display: inline;
+    }
+}
+/*#content {
+    margin-bottom: 300px;
+}*/
+
+/**/
+#about {
+    text-align: center;
+}
+hr {
+    border: 0px;
+    border-top: 1px solid black;
+}
+
+
+.displayedPoem {
+    font-family: 'Playfair Display', serif;
+}
+.poem {
+    /*margin: 0 auto;
+    width: 80%;*/
+
+    /*border: 3px solid red;*/
+
+    visibility: hidden;
+    display: none;
+}
+pre {
+    font-size: 150%;
+
+    white-space: pre-wrap;       /* css-3 */
+     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap;      /* Opera 4-6 */
+     white-space: -o-pre-wrap;    /* Opera 7 */
+     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+/*#poemTitle {}*/
+.poet {
+    font-style: italic;
+    text-align: right;
+    font-size: 140%
+}
+
+
+input.word {
+    font-family: inherit;
+    font-size: inherit;
+
+    background-color: white;
+    border: none;
+    border-bottom-width: medium;
+    border-style: none none solid none;
+    border-color: black;
+    outline: none;
+
+    background-color: rgb(255, 255, 240);
+
+    text-align: center;
+}
+input.word:focus {
+    border-color: orange;
+}
+
+/* for your answers */
+.incorrect {
+    background-color: rgb(255, 102, 102);/*rgb(255,50,50);*/
+    color: white;
+
+    padding: 0 10px;
+}
+.correct {
+    background-color: rgb(150, 255, 150);
+    color: green;
+}
+.answer {
+    background-color: white;
+    /*border: none;
+    border-bottom-width: thin;
+    border-style: none none solid none;
+    border-color: green;*/
+    color: rgb(100, 200, 100);
+}
+
+/* for score feedback */
+#scorePopup {
+    /*background-color: white;
+    border: 1px solid black;*/
+    text-align: center;
+    line-height: 60%;
+
+    /*position: fixed;
+    padding: 50px;
+
+    bottom: 100%;
+
+
+    display: table;*/
+}
+#correctPopup {
+    color: green;
+    font-weight: 400;
+    font-size: 400%
+}
+#incorrectPopup {
+    color: red;
+    font-size: 200%;
+}
