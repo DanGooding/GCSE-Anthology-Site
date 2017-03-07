@@ -20,7 +20,6 @@ function gotoTop() {
 
 function toggleMenu() {
     if ($("#nav").hasClass("open")) {
-        console.log("closing");
         $("#nav").removeClass("open");
     }else {
         $("#nav").addClass("open");
@@ -28,12 +27,10 @@ function toggleMenu() {
 }
 
 function resetTopSpacing() {
-    // console.log("reset");
     if ($(window).width() < 700/*$(".navButton.expand").is(":visible")*/ /*$("#nav").hasClass("open")*/) {
 
         var h1=$("#header").outerHeight(true);
         var h2=$(".navButton.expand").outerHeight(true);
-        console.log(h1+h2);
         $("#content").css({"margin-top": h1+h2});
     }else {
         $("#nav").removeClass("open");
@@ -110,7 +107,7 @@ function clicked(button) {
         return;
     }
     var poemName = button.innerHTML;//.replace("é","e");//.replace(/\s+/g,'_');
-    // console.log(poemName);
+
     //removeSpaces(button.innerHTML);
 
     var nameWithoutAccents = $(button).attr("data-nameWithoutAccents");
@@ -148,7 +145,6 @@ function setupPoem(poemName, displayName) {
     }
 
     var displayedLines = lines;//.splice(-1, 1);
-    //console.log(lines[lines.length-1]);
 
 
     for (var i=0; i<lines.length; i++) {
@@ -253,7 +249,7 @@ function mark() {
 
 
 
-// UITILS
+// UTILS
 
 var disallowedWords = ["the","and","that","these","there", "has", "had", "was","with"];
 function isHideableWord(word) {
