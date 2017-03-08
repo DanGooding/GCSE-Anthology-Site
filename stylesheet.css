@@ -276,7 +276,8 @@ input.word:focus {
     /*background-color: white;
     border: 1px solid black;*/
     text-align: center;
-    line-height: 60%;
+    /*line-height: 60%;*/
+
 
     /*position: fixed;
     padding: 50px;
@@ -289,9 +290,16 @@ input.word:focus {
 #correctPopup {
     color: green;
     font-weight: 400;
-    font-size: 400%
+    font-size: 400%;
+
+    margin: 0;
+    padding: 0;
 }
 #incorrectPopup {
     color: red;
     font-size: 200%;
+
+    margin: 0;
+    padding: 0;
+
 }
