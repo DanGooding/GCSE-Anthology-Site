@@ -242,6 +242,7 @@ input.word {
     border-style: none none solid none;
     border-color: black;
     outline: none;
+    border-radius: 0;
 
     background-color: rgb(255, 255, 240);
 
