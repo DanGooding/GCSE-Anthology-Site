@@ -264,7 +264,7 @@ input.word:focus {
     color: green;
 }
 .answer {
-    background-color: white;
+    background-color: rgb(255, 255, 240);
     /*border: none;
     border-bottom-width: thin;
     border-style: none none solid none;
