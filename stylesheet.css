@@ -4,8 +4,8 @@ body {
     font-family: 'Playfair Display', serif;
     background-color: rgb(255, 255, 240);
 
-    text-shadow: 0 0 0 transparent;
-    text-shadow: none !important;
+    /*text-shadow: 0 0 0 transparent;*/
+    /*text-shadow: none !important;*/
 }
 
 
@@ -47,6 +47,7 @@ body {
     text-decoration: none;
     color: yellow;
 
+    text-shadow: 2px 2px rgb(239, 96, 0);
 }
 
 #nav {
@@ -106,10 +107,13 @@ body {
 
 
 
-
+h1 {
+    text-shadow: 2px 2px orange;
+}
 #poemTitle {
     display: none;
-    text-shadow: none;
+    /*text-shadow: none;*/
+
 }
 
 
