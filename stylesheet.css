@@ -1,22 +1,20 @@
 
 body {
-    /*height: 100%;
-    overflow: auto;*/
-
     margin: 0;
     font-family: 'Playfair Display', serif;
     background-color: rgb(255, 255, 240);
 
+    text-shadow: 0 0 0 transparent;
     text-shadow: none !important;
 }
 
 
 ::selection {
-  background: #ffa64d;
+  background: rgb(255, 166, 77);
   color: white;
 }
 ::-moz-selection {
-  background: #ffa64d;
+  background: rgb(255, 166, 77);
   color: white;
 }
 
@@ -25,27 +23,25 @@ body {
     position: fixed;
     width: 100%;
     top: 0;
-    /*position:*/
 
     /*prevent highlighting header text*/
     -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 
 }
 #header {
     background-color: orange;
-    /*width: 100%;*/
-    /*height: 100px;*/
     color: yellow;
+
     font-size: 200%;
+
     margin: 0;
     padding: 20px 0px 5px 40px;
-    opacity: 0.99;
 }
 #headerLink {
     text-decoration: none;
@@ -54,23 +50,29 @@ body {
 }
 
 #nav {
-    background-color: #FF8C00;
+    background-color: rgb(255, 140, 0);
     overflow: hidden;
     opacity: 0.99;
 }
 .navButton, #markButton {
+    color: yellow;
+    background-color: rgb(255, 140, 0);
+
     outline: none;
-    font-size: 100%;
     border: none;
+
+    font-size: 100%;
+
     text-decoration: none;
     font-family: inherit;
-    color: yellow;
-    background-color: #FF8C00;
-    /*padding: 10px 30px;*/
+
+
     padding: 8px 20px;
-    /*margin: 10px 20px;*/
     display: block;
     float: left;
+}
+.navButton.expand {
+    display: none;
 }
 
 #markButton {
@@ -78,75 +80,37 @@ body {
     margin: 0 auto;
     display: table;
     font-size: 200%;
+    border-radius: 10px;
 }
 .navButton:hover, #markButton:hover {
-    background-color: #ef6000;
+    background-color: rgb(239, 96, 0);
 }
 #markButton:focus {
     outline: solid;
     outline-color: yellow;
-    background-color: #ef6000;
+    background-color: rgb(239, 96, 0);
 }
-#markButton:disabled {
+/*#markButton:disabled {
     background-color: lightgrey;
     color: grey;
-}
+}*/
 .current {
-    background-color: #ef6000;
+    background-color: rgb(239, 96, 0);
 }
-
 
 
 #content {
     width: 60%;
-    /*width: 90%;*/
     margin: 0 auto;
-
-    /*margin-top: 150px;*/
 }
-/*#headerContainer {
-    font-size: 300%;
-}*/
-/*@media (min-width: 768px) {
-    #headerContainer {
-        font-size: 100%;
 
-    }
-    #content {
-        width: 80%;
-        margin: 0 auto;
-        /*margin-top: 150px;* /
-    }
-    .navButton {
-        padding: 10px 15px;
-        /*background-color: green;* /
-    }
-}*/
-/*@media (min-width: 1000px) {
-    #headerContainer {
-        font-size: 100%;
 
-    }
-    #content {
-        width: 60%;
-        margin: 0 auto;
-        /*margin-top: 150px;* /
-    }
-    .navButton {
-        padding: 10px 30px;
-        background-color: red;
-    }
-}*/
 
-.navButton.expand {
-    display: none;
-}
 
 #poemTitle {
     display: none;
     text-shadow: none;
 }
-
 
 
 @media (max-width: 900px) {
@@ -157,15 +121,11 @@ body {
         width: 80%;
     }
 }
-@media (max-width: 700px) {/*700px*/
-    #headerContainer {
-        /*font-size: 200%;*/
-    }
+@media (max-width: 700px) {/* show dropdown menu bar */
     #header {
         padding: 10px 0px 5px 20px;
     }
     .navButton {
-        /*font-size: 200%;*/
         padding: 5px 7px;
     }
     .navButton.expand {
@@ -185,13 +145,7 @@ body {
     #poemTitle {
         display: inline;
     }
-    input.word {
-        /*font-size: 200%;*/
-    }
 }
-/*#content {
-    margin-bottom: 300px;
-}*/
 
 #about {
     text-align: center;
@@ -206,11 +160,6 @@ hr {
     font-family: 'Playfair Display', serif;
 }
 .poem {
-    /*margin: 0 auto;
-    width: 80%;*/
-
-    /*border: 3px solid red;*/
-
     visibility: hidden;
     display: none;
 }
@@ -218,10 +167,10 @@ pre {
     font-size: 150%;
 
     white-space: pre-wrap;       /* css-3 */
-     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-     white-space: -pre-wrap;      /* Opera 4-6 */
-     white-space: -o-pre-wrap;    /* Opera 7 */
-     word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 .poet {
@@ -232,21 +181,20 @@ pre {
 
 
 input.word {
+    background-color: rgb(255, 255, 240);
+
     font-family: inherit;
     font-size: inherit;
+    text-align: center;
 
-    background-color: white;
     border: none;
     border-color: transparent;
     border-bottom-width: medium;
     border-style: none none solid none;
     border-color: black;
-    outline: none;
     border-radius: 0;
 
-    background-color: rgb(255, 255, 240);
-
-    text-align: center;
+    outline: none;
 }
 input.word:focus {
     border-color: orange;
@@ -254,7 +202,7 @@ input.word:focus {
 
 /* for user's answers */
 .incorrect {
-    background-color: rgb(255, 102, 102);/*rgb(255,50,50);*/
+    background-color: rgb(255, 102, 102);
     color: white;
 
     padding: 0 10px;
@@ -265,28 +213,12 @@ input.word:focus {
 }
 .answer {
     background-color: rgb(255, 255, 240);
-    /*border: none;
-    border-bottom-width: thin;
-    border-style: none none solid none;
-    border-color: green;*/
     color: rgb(100, 200, 100);
 }
 
 /* for score feedback */
 #scorePopup {
-    /*background-color: white;
-    border: 1px solid black;*/
     text-align: center;
-    /*line-height: 60%;*/
-
-
-    /*position: fixed;
-    padding: 50px;
-
-    bottom: 100%;
-
-
-    display: table;*/
 }
 #correctPopup {
     color: green;
