@@ -215,7 +215,7 @@ function mark() {
     var total = correct + wrong;
     var proportionCorrect = correct/total;
 
-    var correctMessage = correct + " Correct" + "!".repeat(Math.floor(proportionCorrect*10));
+    var correctMessage = correct + " Correct" + "!".repeat(Math.floor(proportionCorrect*5));
 
 
     var incorrectMessage = wrong + " Incorrect";
