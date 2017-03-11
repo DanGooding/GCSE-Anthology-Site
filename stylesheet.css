@@ -87,8 +87,7 @@ body {
     background-color: rgb(239, 96, 0);
 }
 #markButton:focus {
-    outline: solid;
-    outline-color: yellow;
+    border: 3px solid yellow;
     background-color: rgb(239, 96, 0);
 }
 /*#markButton:disabled {
