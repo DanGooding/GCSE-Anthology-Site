@@ -160,6 +160,7 @@ function setupPoem(poemName, displayName) {
                     // "\" width=\"3em" +// (hidden.length) +
                     "\" maxlength=\"" + (hidden.length) +
                     "\" placeholder=\"" + "?".repeat(hidden.length) +
+                    "\" autocapitalize=\"none\"" +
                     "\">";
 
         var shown = content.replace(hidden, box);
