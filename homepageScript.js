@@ -10,8 +10,8 @@ $(document).ready(function() {
 
 var adjustContentOffset;
 window.onresize = function() {
-    clearTimeout(adjustContentOffset);
-    adjustContentOffset = setTimeout(resetTopSpacing, 100);
+    clearTimeout(adjustContentOffset);// still resixing so don't schedule yet
+    adjustContentOffset = setTimeout(resetTopSpacing, 100);// schedule reset top spacing in 0.1s
 };
 
 function gotoTop() {
@@ -27,7 +27,7 @@ function toggleMenu() {
 }
 
 function resetTopSpacing() {
-    if ($(window).width() < 700/*$(".navButton.expand").is(":visible")*/ /*$("#nav").hasClass("open")*/) {
+    if ($(window).width() < 700) {
 
         var h1=$("#header").outerHeight(true);
         var h2=$(".navButton.expand").outerHeight(true);
@@ -55,10 +55,11 @@ $(document).on('keypress', 'input,select', function(e) {
 
 function showAboutPage() {
     $("#test").hide();
-    $("#about").show();
     $("#markButton").hide();
     $("#scorePopup").hide();
     $("#poemTitle").hide();
+
+    $("#about").show();
 
     $(".navButton").removeClass("current");
     $("#aboutButton").addClass("current");
@@ -72,8 +73,10 @@ function showAboutPage() {
     gotoTop();
 
 }
+
+var hintsEnabled = false;
 function showTestPage() {
-    // gotoTop();
+    hintsEnabled = $("#hintsEnabled:checked").val() ? true : false;
 
     $("#test").show();
     $("#about").hide();
@@ -155,11 +158,15 @@ function setupPoem(poemName, displayName) {
 
         var hidden = words[getRandomInt(0, words.length-1)];
 
+        var placeholder = "?".repeat(hidden.length);
+        if (hintsEnabled) {
+            placeholder = hidden[0] + placeholder.substr(1, placeholder.length);
+        }
+
         var box = "<input type=\"text\" class=\"word\" data-answer=\"" + hidden +
                     "\" size=\"" + (hidden.length) +
-                    // "\" width=\"3em" +// (hidden.length) +
                     "\" maxlength=\"" + (hidden.length) +
-                    "\" placeholder=\"" + "?".repeat(hidden.length) +
+                    "\" placeholder=\"" + placeholder +
                     "\" autocapitalize=\"none\"" +
                     "\">";
 
@@ -168,7 +175,7 @@ function setupPoem(poemName, displayName) {
         displayedLines[i] = shown;
     }
 
-    $("#test").html(/*"<h1 id=\"poemTitle\">" + poemName + "</h1>" +*/ /*"<br>" +*/
+    $("#test").html(
         "<pre><span class=\"displayedPoem\">" + displayedLines.join("\n") + "</span></pre>" +
         "<p class=\"poet\">- " + poet + "&nbsp;</p>"
         );
@@ -180,10 +187,6 @@ function setupPoem(poemName, displayName) {
     $("#poemTitle").addClass("animate");
     $("#poemTitle").show();
     $("#poemTitle").html(displayName || poemName);
-    // $("#"+poemName).show();
-    // $("button.poemSelect").prop("disabled", true
-
-    // $(window).scrollTop(0);
     gotoTop();
 
     $('input.word').eq(0).focus();
@@ -207,8 +210,6 @@ function mark() {
             " <ins class=\"answer\">"+answer+"</ins>");
         }
     })
-    //alert(correct+" correct\nand "+wrong+" wrong")
-    // $("button.poemSelect").prop("disabled", false);
 
     $("#markButton").prop("disabled", true);
     $("#markButton").hide();
