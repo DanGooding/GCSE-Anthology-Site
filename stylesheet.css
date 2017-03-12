@@ -25,7 +25,7 @@ body {
                                   supported by Chrome and Opera */
 }
 .clickable {
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 
