@@ -27,29 +27,32 @@
         </div>
 
         <div id="nav">
-            <a href="javascript:void(0)" class="navButton expand" onclick="toggleMenu();">&#9776; Menu</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Ozymandias</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">London</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">The Prelude</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">My Last Duchess</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Charge of the Light Brigade</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Exposure</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Storm on the Island</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Bayonet Charge</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Remains</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Poppies</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">War Photographer</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Tissue</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);" data-nameWithoutAccents="The Emigree">The Emigr&eacute;e</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Checking Out Me History</a>
-            <a href="javascript:void(0)" class="navButton poemSelect" onclick="clicked(this);">Kamikaze</a>
+            <button class="navButton expand" onclick="toggleMenu();">&#9776; Menu</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Ozymandias</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">London</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">The Prelude</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">My Last Duchess</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Charge of the Light Brigade</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Exposure</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Storm on the Island</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Bayonet Charge</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Remains</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Poppies</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">War Photographer</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Tissue</button>
+            <button class="navButton poemSelect" onclick="clicked(this);" data-nameWithoutAccents="The Emigree">The Emigr&eacute;e</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Checking Out Me History</button>
+            <button class="navButton poemSelect" onclick="clicked(this);">Kamikaze</button>
 
-            <a href="javascript:void(0)" class="navButton" id="random" onclick="clicked(this);">Random</a>
-            <a href="javascript:void(0)" class="navButton" id="aboutButton" onclick="clicked(this);">About</a>
+            <button class="navButton" id="random" onclick="clicked(this);">Random</button>
+            <button class="navButton" id="aboutButton" onclick="clicked(this);">About</button>
+
         </div>
     </div>
 
     <div id="content">
+
+        <!-- for the test -->
         <h1 id="poemTitle"></h1>
         <div id="test"></div>
 
@@ -64,12 +67,12 @@
 
 
 
-
+        <!-- for the about page -->
         <div id="about">
             <h1>A site for english literature poetry revision.</h1>
             <p>Select a poem at the top to practice learning quotes from the Power & Conflict poems.</p>
-            <!-- <p>Hints:</p> -->
-            <label class="unselectable">
+
+            <label class="unselectable clickable">
                 <span style="font-size: 150%">Hints:</span>
                 <label class="switch">
                     <input type="checkbox" id="hintsEnabled">
@@ -77,14 +80,14 @@
                 </label>
             </label>
 
-        </label>
             <hr>
             <h4>Tips</h4>
             <ul style="text-align: left; width: 60%;">
                 <li>Press &lsquo;Mark&rsquo; at the end to see your score</li>
                 <li>The number of question marks in each gap gives you the number of letters for the word</li>
                 <li>Press &lsquo;Enter&rsquo; to go to the next gap</li>
-                <li>Don't worry about capital letters, this is ignored when marking the answers</li>
+                <li>Don't worry about capital letters, these is ignored when marking the answers</li>
+                <li>Turn on hints to show the first letter of each missing word</li>
             </ul>
             <br>
             <p style="text-align:right; font-style:italic;">site by Dan Gooding&nbsp;</p>
@@ -93,7 +96,7 @@
     </div>
 
 
-
+    <!-- the poems (these are copied into another element when used for the test) -->
     <div id="Ozymandias" class="poem" data-poet="Percy Bysshe Shelley">
 I met a traveller from an antique land
 Who said: &ldquo;Two vast and trunkless legs of stone
