@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
+
+<!-- head element contains data about the page -->
 <head>
+    <!-- sets the title that appears in the tab bar -->
     <title>GCSE Poetry</title>
 
+    <!-- adjusts the view to fit mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- imports scripts for interactivity -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="homepageScript.js"></script>
 
-
+    <!-- imports a font -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
+    <!-- imports the stylesheet -->
     <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 
 
 </head>
-<body>
-    <!-- <span id="top"></span> -->
-    <!-- <div id="top"> -->
 
+<!-- body element contains everything to be displayed -->
+<body>
+
+    <!-- the header stays fixed at the top of the screen, even wehn the page is scrolled -->
     <div id="headerContainer" class="unselectable">
         <div id="header">
+            <!-- the main page title -->
             <a id="headerLink" href="javascript:void(0)" onclick="showAboutPage();">GCSE Poetry Anthology Revision</a>
-
 
         </div>
 
+        <!-- contains all navigation buttons -->
         <div id="nav">
+            <!-- the button to open/close the menu on mobile -->
             <button class="navButton expand" onclick="toggleMenu();">&#9776; Menu</button>
+
+            <!-- the buttons to select each poem -->
             <button class="navButton poemSelect" onclick="clicked(this);">Ozymandias</button>
             <button class="navButton poemSelect" onclick="clicked(this);">London</button>
             <button class="navButton poemSelect" onclick="clicked(this);">The Prelude</button>
@@ -44,34 +55,42 @@
             <button class="navButton poemSelect" onclick="clicked(this);">Checking Out Me History</button>
             <button class="navButton poemSelect" onclick="clicked(this);">Kamikaze</button>
 
+            <!-- button to select a random poem -->
             <button class="navButton" id="random" onclick="clicked(this);">Random</button>
+
+            <!-- button to return to the about page -->
             <button class="navButton" id="aboutButton" onclick="clicked(this);">About</button>
 
         </div>
     </div>
 
+    <!-- the main displayed part of the page -->
     <div id="content">
 
-        <!-- for the test -->
+        <!-- ===for the test=== -->
+
         <h1 id="poemTitle"></h1>
+
+        <!-- will contain the the displayed poem with missing words - inserted via javascript once a poem is selected -->
         <div id="test"></div>
 
-        <div id="scorePopup">
-            <!-- <br> -->
-            <h1 id="correctPopup">Yep</h1>
-            <h2 id="incorrectPopup">No</h2>
-            <h2 id="scoreMessage">Ok</h2>
+
+        <div id="scorePopup"> <!-- filled via javascript when mark button presssed -->
+            <h1 id="correctPopup">Yep</h1> <!-- displays the number of correct words-->
+            <h2 id="incorrectPopup">No</h2> <!-- displays the number of incorrect words-->
+            <h2 id="scoreMessage">Ok</h2> <!-- displays a message e.g. 'wow' or 'try again' -->
         </div>
         <button id="markButton" onclick="mark();">Mark</button>
 
 
 
-
-        <!-- for the about page -->
+        <!-- ===for the about page== -->
         <div id="about">
             <h1>A site for english literature poetry revision.</h1>
             <p>Select a poem at the top to practice learning quotes from the Power & Conflict poems.</p>
 
+            <!-- the togge to turn hints on/off -->
+            <!-- just a checkbox with special css styling applied -->
             <label class="unselectable clickable">
                 <span style="font-size: 150%">Hints:</span>
                 <label class="switch">
@@ -82,6 +101,7 @@
 
             <hr>
             <h4>Tips</h4>
+            <!-- a list of usage tips to help the user -->
             <ul style="text-align: left; width: 60%;">
                 <li>Press &lsquo;Mark&rsquo; at the end to see your score</li>
                 <li>The number of question marks in each gap gives you the number of letters for the word</li>
@@ -96,7 +116,13 @@
     </div>
 
 
-    <!-- the poems (these are copied into another element when used for the test) -->
+    <!-- === the poems === -->
+
+    <!-- all are hidden and when the test starts, the poem text is copied into another element ( with id 'test') -->
+
+    <!-- the 'data-' prefix allows storage of data, in this case the poet's name -->
+
+    <!-- character codes such as &ldquo; are used instead of ' & " since they have special meaning in html. In this case &ldquo; means left double quote (“) -->
     <div id="Ozymandias" class="poem" data-poet="Percy Bysshe Shelley">
 I met a traveller from an antique land
 Who said: &ldquo;Two vast and trunkless legs of stone
