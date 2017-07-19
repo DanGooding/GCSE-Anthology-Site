@@ -1,20 +1,22 @@
 
+/*set default style for the entire page*/
 body {
     margin: 0;
     font-family: 'Playfair Display', serif;
     background-color: rgb(255, 255, 240);
 }
 
-
+/*makes highlighted (by cursor) text white with an orange background*/
 ::selection {
   background: rgb(255, 166, 77);
   color: white;
 }
-::-moz-selection {
+::-moz-selection { /* same as above for MOZilla firefox */
   background: rgb(255, 166, 77);
   color: white;
 }
 
+/*a class to prevent elements from being highlighted  e.g. buttons*/
 .unselectable {
     -webkit-touch-callout: none; /* iOS Safari */
       -webkit-user-select: none; /* Safari */
@@ -24,17 +26,20 @@ body {
               user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+/*for anything that the user can click,
+change the cursor to indicate this (to a pointing hand) */
 .clickable {
     cursor: pointer !important;
 }
 
-
+/*pin the header to the top of the page*/
 #headerContainer {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1;
+    z-index: 1; /* ensure above all other content */
 }
+/* stylye the header ackground and text */
 #header {
     background-color: orange;
     color: yellow;
@@ -44,8 +49,9 @@ body {
     margin: 0;
     padding: 20px 0px 5px 40px;
 }
+/* the link back to the about page */
 #headerLink {
-    text-decoration: none;
+    text-decoration: none; /* prevent underlining on hover*/
     color: yellow;
 
     text-shadow: 2px 2px rgb(239, 96, 0);
@@ -56,6 +62,7 @@ body {
     overflow: hidden;
     opacity: 0.99;
 }
+/* style buttons*/
 .navButton, #markButton {
     color: yellow;
     background-color: rgb(255, 140, 0);
@@ -74,6 +81,7 @@ body {
     display: block;
     float: left;
 }
+/*button to show/hide the menu on mobile, hide the button by default - later show if on mobile */
 .navButton.expand {
     display: none;
     border-radius: 0;
@@ -86,10 +94,12 @@ body {
     font-size: 200%;
     border-radius: 20px;
 }
+/* darken buttons when mouse hovers over them */
 .navButton:hover, #markButton:hover {
     background-color: rgb(239, 96, 0);
     cursor: pointer;
 }
+/* when button selected (e.g. using TAB key), give a yellow glow */
 #markButton:focus {
     border: 3px solid yellow;
     background-color: rgb(239, 96, 0);
@@ -98,37 +108,41 @@ body {
     background-color: lightgrey;
     color: grey;
 }*/
+/* darken the button which was last pressed - so when being tested on the poem 'London' the 'London' button is darkend to show this */
 .current {
     background-color: rgb(239, 96, 0);
 }
 
-
+/* leave space either side of the main page text, making it easier to read */
 #content {
     width: 60%;
     margin: 0 auto;
 }
 
 
-
+/* give all heading text a shadow */
 h1 {
     text-shadow: 2px 2px orange;
 }
+/* hide title until test begins */
 #poemTitle {
     display: none;
-    /*text-shadow: none;*/
-
 }
 
-
+/* if the screen is ≤ 900 pixels across (a mobile device (maybe tablet)) - apply these styles */
 @media (max-width: 900px) {
+    /*make buttons smaller to fit on screen*/
     .navButton {
         padding: 5px 10px;
     }
+    /*make main text take up more of the screen - easier to see & fewer line breaks*/
     #content {
         width: 80%;
     }
 }
+/* if screen even smaller (≤ 700 pixels) */
 @media (max-width: 700px) {/* show dropdown menu bar */
+    /* reduce empty space aropund everything */
     #header {
         padding: 10px 0px 5px 20px;
     }
@@ -139,6 +153,7 @@ h1 {
         display: block;
         width: 100%;
     }
+    /*hide all menu buttons except the button to expand the menu and show all*/
     .navButton:not(.expand) {
         display: none;
     }
@@ -147,7 +162,6 @@ h1 {
     }
     #nav.open .navButton {
         display: block;
-
     }
     #poemTitle {
         display: inline;
@@ -157,62 +171,67 @@ h1 {
     #header {
         padding: 0;
         padding-left: 10px;
-        color: green;
+        /*color: green;*/
     }
 }
 
-
+/* text on the about page*/
 #about {
     text-align: center;
 }
+/*style the 'Horizontal Rule' a line across the page  to be a single solid line - no shadow etc.*/
 hr {
     border: 0px;
     border-top: 1px solid black;
 }
+/*remove default bullet points*/
 li {
     list-style: none;
 }
+/*set the spade playing card suit (♠) as the bullet point*/
 li:before {
     content:'\2660'; /* spade bullet points */
-
     padding-right: 10px;
 }
 
-
+/*set the fancy font to the poem being tested*/
 .displayedPoem {
     font-family: 'Playfair Display', serif;
 }
+/*hide all poems - their text is retrieved and inserted into the 'test' div via javascript*/
 .poem {
     visibility: hidden;
     display: none;
 }
+/* 'pre' tag is for preformatted text & preserves indents and paragraph breaks - used to display the poems */
 pre {
     font-size: 150%;
 
+    /*ensures displayed poem text wraps onto next line correctly - none cut off*/
     white-space: pre-wrap;       /* css-3 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -moz-pre-wrap;  /* Mozilla */
     white-space: -pre-wrap;      /* Opera 4-6 */
     white-space: -o-pre-wrap;    /* Opera 7 */
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
+/*the poets name - displayed at the bottom of each poem test*/
 .poet {
     font-style: italic;
     text-align: right;
     font-size: 140%
 }
 
-
+/*a text box to input a missing word in the test*/
 input.word {
     background-color: rgb(255, 255, 240);
 
+    /*ensure default page style is preserved - dont use default form style*/
     font-family: inherit;
     font-size: inherit;
     text-align: center;
 
-    /*margin: 5px;
-    padding: 5px;*/
-
+    /* ensure has underline border only */
     border: none;
     border-color: transparent;
     border-bottom-width: medium;
@@ -222,30 +241,36 @@ input.word {
 
     outline: none;
 }
+/*when inputting this word, underline it in orange instead*/
 input.word:focus {
     border-color: orange;
 }
 
-/* for user's answers */
+/* ==for user's answers== */
+
+/*styles an incorrect word input by the user as red*/
 .incorrect {
     background-color: rgb(255, 102, 102);
     color: white;
 
     padding: 0 10px;
 }
+/*styles a correct answer green*/
 .correct {
     background-color: rgb(150, 255, 150);
     color: green;
 }
+/*styles the actual answer (input if the user got it wrong) green*/
 .answer {
     background-color: rgb(255, 255, 240);
     color: rgb(100, 200, 100);
 }
 
-/* for score feedback */
+/* ==for score feedback== */
 #scorePopup {
     text-align: center;
 }
+/*displays how many correct answers*/
 #correctPopup {
     color: green;
     font-weight: 400;
@@ -254,19 +279,18 @@ input.word:focus {
     margin: 0;
     padding: 0;
 }
+/*displays how many incorrect answers*/
 #incorrectPopup {
     color: red;
     font-size: 200%;
 
     margin: 0;
     padding: 0;
-
 }
 
 
 
-/*testing*/
-
+/* ===the toggle switch to turn hints on/off== */
 .switch {
     /*background-color: orange;*/
     display: inline-block;
@@ -279,11 +303,12 @@ input.word:focus {
     padding: 0;
     margin-bottom: -5px;
 }
+/*hide the actual checkbox*/
 .switch input {
     display: none;
 }
 
-/* this is the background */
+/* this is the background of the swtich */
 .slider {
 
     position: absolute;
@@ -301,14 +326,16 @@ input.word:focus {
 
     cursor: pointer;
 }
+/*turn the slider orange when the switch is in the on position*/
 input:checked + .slider {
     background-color: orange;
 }
+/*turn the slider grey when the switch is in the off position*/
 input:not(:checked) + .slider {
     background-color: grey;
 }
 
-/* the actual handle */
+/* the actual handleof the switch */
 .slider:before {
     background-color: white;
     content: "";
@@ -325,12 +352,16 @@ input:not(:checked) + .slider {
     /*margin-left: 30px;*/
     /*transition: margin-left*/
     /*transition: 0.5s;*/
+
+    /*take 0.2 seconds to move to new position when toggled*/
     -webkit-transition: 0.2s;
     transition: 0.2s;
 }
+/*when 'on' move to the right*/
 input:checked + .slider:before {
     margin-left: 24px;
 }
+/*when 'off' move to the left*/
 input:not(:checked) + .slider:before {
     margin-left: 0px;
 }
