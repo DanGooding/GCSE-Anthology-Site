@@ -160,33 +160,31 @@ function setupPoem(poemName, displayName) {
     for (var i=0; i<lines.length; i++) { // remove 1 word per line
         var content = lines[i];
 
-        var words = content.split(/\W/); //split by non words (e.g. spaces)
-        // also split by apostrophe (e.g. "husband's" becomes "husband", "s", of which "s" is too short)
-        // this means user's doent have to remember apostrophe placement
-        // preventing loss of marks for "blundered" instead of "blunder'd"
+        // split into words
+        // also splits on `'` `-`, so user doesn't have to remember apostrophe placement
+        // also get position in line of each pattern, for replacement
+        var wordMatches = [...content.matchAll(/[A-Za-zÀ-ÖØ-öø-ÿ]+/g)]
+        wordMatches = wordMatches.filter(([word, ...rest]) => isHideableWord(word))
 
-        words = words.filter(isHideableWord);
-        // remove words which are not 'hideable' e.g. too short, or common (e.g. "the")
-
-
-        if (words.length == 0) {
-        // if no hideable words on this line, don't hide any words - go to next line
+        if (wordMatches.length == 0) {
             continue;
         }
 
-        var hidden = words[getRandomInt(0, words.length-1)]; // pick a random word to hide
+        let hiddenWordIndex = getRandomInt(0, wordMatches.length - 1)
+        let hiddenWord = wordMatches[hiddenWordIndex][0]
+        let hiddenWordPosition = wordMatches[hiddenWordIndex].index
 
         // replace with a many question marks as letters in the word
-        var placeholder = "?".repeat(hidden.length);
+        var placeholder = "?".repeat(hiddenWord.length);
         if (hintsEnabled) {
             // replace first "?" with first letter of word if hints on
-            placeholder = hidden[0] + placeholder.substr(1, placeholder.length);
+            placeholder = hiddenWord[0] + placeholder.substr(1, placeholder.length);
         }
 
-        // create the text box (an 'input' element)
-        var box = "<input type=\"text\" class=\"word\" data-answer=\"" + hidden +
-                    "\" size=\"" + (hidden.length) +
-                    "\" maxlength=\"" + (hidden.length) +
+        // create the answer box (an 'input' element)
+        var box = "<input type=\"text\" class=\"word\" data-answer=\"" + hiddenWord +
+                    "\" size=\"" + (hiddenWord.length) +
+                    "\" maxlength=\"" + (hiddenWord.length) +
                     "\" placeholder=\"" + placeholder +
                     "\" autocapitalize=\"none\"" +
                     "\">";
@@ -198,9 +196,11 @@ function setupPoem(poemName, displayName) {
 
         // 'placeholder' is the default text when empty - "????" in this case
 
-
+        
         // replace the hidden word with the textbox
-        var shown = content.replace(hidden, box);
+        let shown = content.substring(0, hiddenWordPosition) 
+                + box 
+                + content.substring(hiddenWordPosition + hiddenWord.length)
 
         displayedLines[i] = shown; // overwrite this line (now with the a word)
     }
